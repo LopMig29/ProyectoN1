@@ -47,7 +47,7 @@ class MyFirstController extends Controller
     }
 
     public function update(Request $request, $id) {
-        // Student::where('id','=', $id)->update();
+        // Student::where('id','=', $id)->update(); 
         $student           = Student::findOrFail($id);
         $student->name     = $request->name;
         $student->lastName = $request->lastName;
