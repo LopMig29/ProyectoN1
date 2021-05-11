@@ -26,9 +26,3 @@ Route::post('/students', [MyFirstController::class,'store']);
 Route::delete('/students/{id}', [MyFirstController::class, 'destroy']); 
 Route::get('/students/{id}', [MyFirstController::class, 'edit']); 
 Route::patch('/student/{id}', [MyFirstController::class, 'update']); 
-
-
-Route::get('/home', [App\Http\Controllers\MyFirstController::class, 'index']);
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

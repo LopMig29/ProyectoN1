@@ -2,7 +2,7 @@
 @section('content')
     <form action="{{url ('students') }}" method="post">
         @csrf
-        <div >
+        <div>
             <h1 class="text-center">Crear Campos</h1>
             <br>
             <div class="mx-auto" style="width: 500px;">
@@ -15,9 +15,9 @@
                 </div>
                 <br>
             </div>
-                <div class="mx-auto" style="width: 400px;">
-                    <button class="btn btn-primary btn-lg btn-block">Crear</button>
-                </div>
+            <div class="mx-auto" style="width: 400px;">
+                <button class="btn btn-primary btn-lg btn-block">Crear</button>
+            </div>
         </div>
     </form>
 @endsection
