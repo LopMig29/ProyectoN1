@@ -3,7 +3,7 @@
     <span>
       <i class="far fa-clock"></i> 
       {{weekDays[clock.weekday]}} {{clock.day}} de {{months[clock.month]}} 
-      {{hour}}:{{minutes}}:{{seconds}}{{meridian}}
+      {{hour}}:{{minutes}}:{{seconds}} {{meridian}}
     </span>
   </div>
 </template>
@@ -15,7 +15,7 @@
     data () {
       return {
         clock           :     {},
-        weekDays        :     ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+        weekDays        :     ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sababado"],
         months          :     ["","Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
         
       }

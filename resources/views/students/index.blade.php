@@ -1,14 +1,18 @@
 @extends('layouts.app')
 @section('content')
     <div>
+        <div class="buscar">
         <form class="form-inline my-2 my-lg-0 float-right">
             <input name="searchBy" class="form-control mr-sm-2" type="search" placeholder="Filtrar busqueda" aria-label="Search" value="{{ $searchBy }}">
             <button class="btn btn-outline-primary" type="submit">Buscar</button>
-        </form>
+            </form>
+        </div>
+        <div class="btnAgregar">
+            <a href="{{url ('create/') }}" class="btn btn-outline-success my-2 my-sm-0" >
+                <i class="fa fa-user-plus"></i>
+            </a>
+        </div>
     </div>
-    <a href="{{url ('create/') }}" class="btn btn-outline-success my-2 my-sm-0" >
-        <i class="fa fa-user-plus"></i>
-    </a>
     <br>
     <div>
         <table class="table table-hover">

@@ -1862,7 +1862,7 @@ var _require = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-
   data: function data() {
     return {
       clock: {},
-      weekDays: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+      weekDays: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sababado"],
       months: ["", "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
     };
   },
@@ -45911,6 +45911,7 @@ var render = function() {
           _vm._s(_vm.minutes) +
           ":" +
           _vm._s(_vm.seconds) +
+          " " +
           _vm._s(_vm.meridian) +
           "\n  "
       )
