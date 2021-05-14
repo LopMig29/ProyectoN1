@@ -1,18 +1,54 @@
- <template>
-    <div class="firtComponent">
-        <h1>{{ message }}</h1>
-    </div> 
+<template>
+  <div id = "clock-container">
+    <span>
+      <i class="far fa-clock"></i> 
+      {{weekDays[clock.weekday]}} {{clock.day}} de {{months[clock.month]}} 
+      {{hour}}:{{minutes}}:{{seconds}}{{meridian}}
+    </span>
+  </div>
 </template>
 
 <script>
-export default {
-    data(){
-        return{
-            message: 'Firts component in VUE'
-        }    
+  const { DateTime } = require("luxon");
+
+  export default {
+    data () {
+      return {
+        clock           :     {},
+        weekDays        :     ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+        months          :     ["","Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+        
+      }
+    },
+    computed: {
+      meridian() {
+        return this.clock.hour < 12 ? 'AM' : 'PM';
+      },
+
+      hour() {
+        let hour = this.clock.hour > 12 ?  this.clock.hour - 12 : this.clock.hour;
+        return hour < 10 ? "0" + hour : hour;
+      },
+
+      minutes(){
+        return this.clock.minute < 10 ? "0" + this.clock.minute : this.clock.minute;
+      },
+
+      seconds(){
+        return this.clock.second < 10 ? "0" + this.clock.second : this.clock.second;
+      }
+    },
+    
+    mounted(){
+      setInterval(() => {
+        this.clock = DateTime.now();
+        this.weekDays[this.clock.weekday];
+        this.months[this.clock.month];
+      },1000);
     }
-}
+  }
 </script>
 
-<style>
+<style scoped>
+
 </style>

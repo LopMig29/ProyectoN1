@@ -7,7 +7,7 @@
         </form>
     </div>
     <a href="{{url ('create/') }}" class="btn btn-outline-success my-2 my-sm-0" >
-        <i class="fa fa-user-plus"></i> Add
+        <i class="fa fa-user-plus"></i>
     </a>
     <br>
     <div>

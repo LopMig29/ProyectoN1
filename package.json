@@ -25,7 +25,11 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@dangvanthanh/vue-clock": "^0.2.1",
         "@popperjs/core": "^2.9.2",
-        "vue": "^2.6.12"
+        "luxon": "^1.26.0",
+        "vue": "^2.6.12",
+        "vue-clock2": "^1.1.5",
+        "vue2-flip-countdown": "^0.11.1"
     }
 }
