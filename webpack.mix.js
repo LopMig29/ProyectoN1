@@ -12,6 +12,8 @@ const mix = require('laravel-mix');
  */
 
 mix.disableSuccessNotifications();
-mix.js('resources/js/app.js', 'public/js')
-    .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js').vue();
+mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.js('resources/js/students.js', 'public/js').vue();
+mix.postCss('resources/css/students.css', 'public/css');

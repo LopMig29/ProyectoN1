@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
-        <title>Sistema</title>
+        <title>Practica</title>
         
         <!-- Scripts -->
         
@@ -15,6 +15,7 @@
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         <script src="https://kit.fontawesome.com/9d8a879e93.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
         <script src="{{ asset('js/app.js')}}" defer> </script>
         <!-- Styles -->
@@ -25,7 +26,7 @@
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/students') }}">
-                        1er Sistema
+                        Inicio
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -78,7 +79,6 @@
                     <vue-clock></vue-clock>
                 </div>
             </nav>
-            
             <main class="py-4">
                 @yield('content')
             </main>

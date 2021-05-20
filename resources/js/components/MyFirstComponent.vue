@@ -15,7 +15,7 @@
     data () {
       return {
         clock           :     {},
-        weekDays        :     ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sababado"],
+        weekDays        :     ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
         months          :     ["","Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
         
       }

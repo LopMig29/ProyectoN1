@@ -10,7 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.21",
+        "axios": "^0.21.1",
         "bootstrap": "^4.6.0",
         "jquery": "^3.6",
         "laravel-mix": "^6.0.6",
@@ -28,6 +28,7 @@
         "@dangvanthanh/vue-clock": "^0.2.1",
         "@popperjs/core": "^2.9.2",
         "luxon": "^1.26.0",
+        "sweetalert": "^2.1.2",
         "vue": "^2.6.12",
         "vue-clock2": "^1.1.5",
         "vue2-flip-countdown": "^0.11.1"
