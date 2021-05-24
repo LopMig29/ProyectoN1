@@ -12,23 +12,23 @@ new Vue({
             }) 
         },
         createEstudent(){
-            
+            axios.get()
         },
 
-        confirmEdit(){
-            
+        edit(){
+            axios.get(student.id).then(response => {
+                
+            })
         },
-
-        edit(student){
+        
+        update(student){
             axios.put(`students-vue/`, {
                 params :{
                     'students': student.id,
                 }
             })
-        },
-
-        update(){
         
+            
         },
 
         confirmDestroy(id){
@@ -54,8 +54,21 @@ new Vue({
                     this.getStudents();
                 }
             });
-        }
+        },
+        extraerAFP(sueldo){
+            return (2.87 / 100) * sueldo
+        },
+    
+        extraerARS(sueldo){
+            return (3.04/100) * sueldo
+        },
+    
+        extraerIRS(sueldo){
+            return (15 / 100) * sueldo
+        },
     },
+
+    
 mounted(){
     this.getStudents();
     }

@@ -16,7 +16,7 @@
     </a>
 </div>
 <br>
-<div>
+<div class="btnVue">
     <a href="http://127.0.0.1:8000/students-vue" class="btn btn-success" role="button" data-bs-toggle="button">
         <i class="fab fa-vuejs"></i>
     </a>

@@ -18,16 +18,22 @@ class StudentsController extends Controller
             'students' => $students
         ]);
     }
+
+    public function create(){
+        return view('students/create');
+    }
     
     public function update(Request $request, $id) {
-        $id->update($request->all());
-
-        return response()->json($id);
+        $student           = Student::findOrFail($id);
+        $student->name     = $request->name;
+        $student->lastName = $request->lastName;
+        $student->update();
+        return redirect('students-vue');
     }
     
     public function edit($id){
-        return response()->json([
-            "student" => Student::findOrFail($id)
+        return view('students/edit',[
+            "student" =>  Student::findOrFail($id)
         ]);
     }
 

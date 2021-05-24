@@ -2077,16 +2077,19 @@ new Vue({
         _this.students = response.data.students;
       });
     },
-    createEstudent: function createEstudent() {},
-    confirmEdit: function confirmEdit() {},
-    edit: function edit(student) {
+    createEstudent: function createEstudent() {
+      axios.get();
+    },
+    edit: function edit() {
+      axios.get(student.id).then(function (response) {});
+    },
+    update: function update(student) {
       axios.put("students-vue/", {
         params: {
           'students': student.id
         }
       });
     },
-    update: function update() {},
     confirmDestroy: function confirmDestroy(id) {
       var _this2 = this;
 
@@ -2114,6 +2117,15 @@ new Vue({
           _this3.getStudents();
         }
       });
+    },
+    extraerAFP: function extraerAFP(sueldo) {
+      return 2.87 / 100 * sueldo;
+    },
+    extraerARS: function extraerARS(sueldo) {
+      return 3.04 / 100 * sueldo;
+    },
+    extraerIRS: function extraerIRS(sueldo) {
+      return 15 / 100 * sueldo;
     }
   },
   mounted: function mounted() {

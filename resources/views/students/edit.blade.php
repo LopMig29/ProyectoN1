@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <form action="{{url('student/'.$student->id)}}" method="post">
-        @csrf
+            @csrf
         <div>
             {{method_field('PATCH')}}
             <h1 class="text-center">Editar Campos</h1>

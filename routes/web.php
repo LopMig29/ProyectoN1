@@ -29,7 +29,6 @@ Route::patch('/student/{id}', [MyFirstController::class, 'update']);
 
 Route::get('/students-vue',[StudentsController::class, 'index']);
 Route::get('/students-vue/list',[StudentsController::class, 'list']);
-Route::put('/students-vue/{id}', [StudentsController::class, 'edit']);
-Route::patch('/student-vue/{id}', [StudentsController::class, 'update']);
+Route::get('/students/edit/{id}', [StudentsController::class, 'edit']);
+Route::put('/student-vue/{id}', [StudentsController::class, 'update']);
 Route::delete('/students-vue/{id}', [StudentsController::class, 'destroy']);
-// Route::put('/students-vue/{id}', [StudentsController::class, 'update']);
