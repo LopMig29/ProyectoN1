@@ -8,7 +8,8 @@ new Vue({
     methods : {
         getEmployeess(){
             axios.get('/employees-vue/list').then(response => {
-                this.employee = response.data.employees
+                console.log(response.data)
+                this.employees = response.data.employees
             }) 
         },
         createEmployee(){

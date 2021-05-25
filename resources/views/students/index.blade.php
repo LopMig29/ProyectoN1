@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
 <div class="buscar">
     <div>
         <form class="form-inline my-2 my-lg-0 float-right">

@@ -35,7 +35,7 @@
             <td>{{extraerISR(employee.sueldo)}}</td>
             <td>{{extraerSueldoNeto(employee.sueldo)}}</td>
             <td>
-                <a :href="'/employees/'+empleado.id" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#Modal">
+                <a :href="'/employees/'+employee.id" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#Modal">
                     <i class="fas fa-user-edit"></i>
                 </a>
             </td>

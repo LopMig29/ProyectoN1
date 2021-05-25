@@ -2074,7 +2074,8 @@ new Vue({
       var _this = this;
 
       axios.get('/employees-vue/list').then(function (response) {
-        _this.employee = response.data.employees;
+        console.log(response.data);
+        _this.employees = response.data.employees;
       });
     },
     createEmployee: function createEmployee() {// axios.get()
