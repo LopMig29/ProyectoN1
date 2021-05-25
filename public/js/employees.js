@@ -2058,35 +2058,34 @@ process.umask = function() { return 0; };
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************************!*\
-  !*** ./resources/js/students.js ***!
-  \**********************************/
+/*!***********************************!*\
+  !*** ./resources/js/employees.js ***!
+  \***********************************/
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     axios = _require["default"];
 
 new Vue({
-  el: '#students-container',
+  el: '#employees-container',
   data: {
-    students: []
+    employees: []
   },
   methods: {
-    getStudents: function getStudents() {
+    getEmployeess: function getEmployeess() {
       var _this = this;
 
-      axios.get('/students-vue/list').then(function (response) {
-        _this.students = response.data.students;
+      axios.get('/employees-vue/list').then(function (response) {
+        _this.employee = response.data.employees;
       });
     },
-    createEstudent: function createEstudent() {
-      axios.get();
+    createEmployee: function createEmployee() {// axios.get()
     },
     edit: function edit() {
-      axios.get(student.id).then(function (response) {});
+      axios.get(employee.id).then(function (response) {});
     },
-    update: function update(student) {
-      axios.put("students-vue/", {
+    update: function update(employee) {
+      axios.put("empleado-vue/", {
         params: {
-          'students': student.id
+          'employees': employee.id
         }
       });
     },
@@ -2108,19 +2107,31 @@ new Vue({
     destroy: function destroy(id) {
       var _this3 = this;
 
-      axios["delete"]('/students-vue/' + id).then(function (response) {
+      axios["delete"]('/employees-vue/' + id).then(function (response) {
         if (response.data.success) {
-          swal("Estudiante Eliminado", {
+          swal("Empleado Eliminado", {
             icon: 'success'
           });
 
-          _this3.getStudents();
+          _this3.getEmployees();
         }
       });
+    },
+    extraerAFP: function extraerAFP(sueldo) {
+      return 2.87 / 100 * sueldo;
+    },
+    extraerARS: function extraerARS(sueldo) {
+      return 3.04 / 100 * sueldo;
+    },
+    extraerISR: function extraerISR(sueldo) {
+      return 15 / 100 * sueldo;
+    },
+    extraerSueldoNeto: function extraerSueldoNeto(sueldo) {
+      sueldo - (2.87 + 3.04 + 15);
     }
   },
   mounted: function mounted() {
-    this.getStudents();
+    this.getEmployeess();
   }
 });
 })();

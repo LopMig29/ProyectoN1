@@ -17,3 +17,6 @@ mix.sass('resources/sass/app.scss', 'public/css');
 
 mix.js('resources/js/students.js', 'public/js').vue();
 mix.postCss('resources/css/students.css', 'public/css');
+
+mix.js('resources/js/employees.js', 'public/js').vue();
+mix.postCss('resources/css/employee.css', 'public/css');

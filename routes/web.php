@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MyFirstController;
 use App\Http\Controllers\StudentsController;
+use App\Http\Controllers\EmployeesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +33,11 @@ Route::get('/students-vue/list',[StudentsController::class, 'list']);
 Route::get('/students/edit/{id}', [StudentsController::class, 'edit']);
 Route::put('/student-vue/{id}', [StudentsController::class, 'update']);
 Route::delete('/students-vue/{id}', [StudentsController::class, 'destroy']);
+
+Route::get('/employees-vue',[EmployeesController::class, 'index']);
+Route::get('employees/create', [EmployeesController::class,'create']);
+Route::post('/employees-vue', [EmployeesController::class,'store']);
+Route::patch('/employee-vue/{id}', [EmployeesController::class, 'update']);
+Route::get('/employees-vue/list',[EmployeesController::class, 'list']);
+Route::get('/employees/edit/{id}', [EmployeesController::class, 'edit']);
+Route::delete('/employee-vue/{id}', [EmployeesController::class, 'destroy']);
