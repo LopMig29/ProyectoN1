@@ -3,29 +3,27 @@ const { default: axios } = require("axios");
 new Vue({
     el: '#employees-container',
     data: {
+        ready:false,
         employees: [],
+        show: false,
     },
     methods : {
-        getEmployeess(){
+        getEmployees(){
             axios.get('/employees-vue/list').then(response => {
-                console.log(response.data)
-                this.employees = response.data.employees
+                this.employees = response.data.employees;
+                this.ready     = true;
             }) 
-        },
-        createEmployee(){
-            // axios.get()
         },
 
         edit(){
-            axios.get(employee.id).then(response => {
-                
+            axios.get(employee.id).then(response => {  
             })
         },
         
         update(employee){
-            axios.put(`empleado-vue/`, {
+            axios.put("employees-vue/", {
                 params :{
-                    'employees': employee.id,
+                    'employee': employee.id,
                 }
             })    
         },
@@ -39,7 +37,7 @@ new Vue({
                 dangerMode: true,
               }).then((willDelete) => {
                 if (willDelete) {
-                 this.destroy(id);
+                    this.destroy(id);
                 }
             });
         },
@@ -54,24 +52,25 @@ new Vue({
                 }
             });
         },
-        extraerAFP(sueldo){
-            return (2.87 / 100) * sueldo
-        },
-    
-        extraerARS(sueldo){
-            return (3.04/100) * sueldo
-        },
-    
-        extraerISR(sueldo){
-            return (15 / 100) * sueldo
+        
+        formatNumber(n){
+            return Intl.NumberFormat("en-US").format(Math.round(n))
         },
 
-        extraerSueldoNeto(sueldo){
-            sueldo - (2.87 + 3.04 + 15)
+        edit(e,id){
+            console.log(e.target.className);
+            if(e.target.localName != "button" && e.target.localName != "i" && e.target.className != "delete-td")
+            {
+                location.href="/employees-vue/" + id;
+            }
+        },
+
+        buttom(){ 
+            this.show = this.show == true ? false : true;
         },
     },
   
-mounted(){
-    this.getEmployeess();
+    mounted(){
+        this.getEmployees();
     }
 })

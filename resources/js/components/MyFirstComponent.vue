@@ -49,6 +49,12 @@
   }
 </script>
 
-<style scoped>
-
+<style>
+  #clock-container{
+    display: inline-block;
+    font-size: 14px;
+    background: #F4F6F6;
+    border-width: 1px;
+    /* font-weight: bolder; */
+  }
 </style>

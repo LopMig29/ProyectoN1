@@ -47,6 +47,6 @@ class MyFirstController extends Controller
 
     private function getStudents(){ 
         $searchBy = request()->searchBy;
-        return Student::where('name','LIKE', '%'.$searchBy.'%')->Paginate(10);
+        return Student::where('name','LIKE', '%'.$searchBy.'%')->Paginate(5);
     }
 }

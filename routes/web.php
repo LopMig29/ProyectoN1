@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MyFirstController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,23 +24,24 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/students', [MyFirstController::class,'index']);
-Route::get('/create', [MyFirstController::class,'create']);
-Route::post('/students', [MyFirstController::class,'store']);
-Route::delete('/students/{id}', [MyFirstController::class, 'destroy']);
-Route::get('/students/{id}', [MyFirstController::class, 'edit']);
-Route::patch('/student/{id}', [MyFirstController::class, 'update']);
 
-Route::get('/students-vue',[StudentsController::class, 'index']);
-Route::get('/students-vue/list',[StudentsController::class, 'list']);
-Route::get('/students/edit/{id}', [StudentsController::class, 'edit']);
-Route::put('/student-vue/{id}', [StudentsController::class, 'update']);
-Route::delete('/students-vue/{id}', [StudentsController::class, 'destroy']);
+Route::get('/students', [MyFirstController::class,'index'])->middleware('auth');
+Route::get('/create', [MyFirstController::class,'create'])->middleware('auth');
+Route::post('/students', [MyFirstController::class,'store'])->middleware('auth');
+Route::delete('/students/{id}', [MyFirstController::class, 'destroy'])->middleware('auth');
+Route::get('/students/{id}', [MyFirstController::class, 'edit'])->middleware('auth');
+Route::patch('/student/{id}', [MyFirstController::class, 'update'])->middleware('auth');
 
-Route::get('/employees-vue',[EmployeesController::class, 'index']);
-Route::get('employees/create', [EmployeesController::class,'create']);
-Route::post('/employees-vue', [EmployeesController::class,'store']);
-Route::patch('/employee-vue/{id}', [EmployeesController::class, 'update']);
-Route::get('/employees-vue/list',[EmployeesController::class, 'list']);
-Route::get('/employees/edit/{id}', [EmployeesController::class, 'edit']);
-Route::delete('/employee-vue/{id}', [EmployeesController::class, 'destroy']);
+Route::get('/students-vue',[StudentsController::class, 'index'])->middleware('auth');
+Route::get('/students-vue/list',[StudentsController::class, 'list'])->middleware('auth');
+Route::get('/students/edit/{id}', [StudentsController::class, 'edit'])->middleware('auth');
+Route::put('/student-vue/{id}', [StudentsController::class, 'update'])->middleware('auth');
+Route::delete('/students-vue/{id}', [StudentsController::class, 'destroy'])->middleware('auth');
+
+Route::get('/employees-vue',[EmployeesController::class, 'index'])->middleware('auth');
+Route::get('employees-vue/create', [EmployeesController::class,'create'])->middleware('auth');
+Route::post('/employees-vue', [EmployeesController::class,'store'])->middleware('auth');
+Route::patch('/employees-vue/{id}', [EmployeesController::class, 'update'])->middleware('auth');
+Route::get('/employees-vue/list',[EmployeesController::class, 'list'])->middleware('auth');
+Route::get('/employees-vue/{id}', [EmployeesController::class, 'edit'])->middleware('auth');
+Route::delete('/employees-vue/{id}', [EmployeesController::class, 'destroy'])->middleware('auth');

@@ -24,16 +24,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
+        return view ('home');
     }
 }
-
-// if($request){
-//     $query trim ($request->get('search'));
-
-//     $Students::where('Name', 'lastName', '%'.$query.'%')
-//     -> orderBy('id' , 'asc')
-//     -> get();
-
-//     return view('/student', ['Student' => $Students, 'search' => $query]);
-// }

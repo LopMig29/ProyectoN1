@@ -13,12 +13,6 @@
         <i class="fa fa-user-plus"></i>
     </a>
 </div>
-<br>
-<div class="btnVue">
-    <a href="http://127.0.0.1:8000/students-vue" class="btn btn-success" role="button" data-bs-toggle="button">
-        <i class="fab fa-vuejs"></i>
-    </a>
-</div>
     <br>
     <div>
         <table class="table table-hover">

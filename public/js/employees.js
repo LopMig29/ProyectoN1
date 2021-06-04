@@ -2061,32 +2061,36 @@ var __webpack_exports__ = {};
 /*!***********************************!*\
   !*** ./resources/js/employees.js ***!
   \***********************************/
+var _methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     axios = _require["default"];
 
 new Vue({
   el: '#employees-container',
   data: {
-    employees: []
+    ready: false,
+    employees: [],
+    show: false
   },
-  methods: {
-    getEmployeess: function getEmployeess() {
+  methods: (_methods = {
+    getEmployees: function getEmployees() {
       var _this = this;
 
       axios.get('/employees-vue/list').then(function (response) {
-        console.log(response.data);
         _this.employees = response.data.employees;
+        _this.ready = true;
       });
-    },
-    createEmployee: function createEmployee() {// axios.get()
     },
     edit: function edit() {
       axios.get(employee.id).then(function (response) {});
     },
     update: function update(employee) {
-      axios.put("empleado-vue/", {
+      axios.put("employees-vue/", {
         params: {
-          'employees': employee.id
+          'employee': employee.id
         }
       });
     },
@@ -2118,21 +2122,20 @@ new Vue({
         }
       });
     },
-    extraerAFP: function extraerAFP(sueldo) {
-      return 2.87 / 100 * sueldo;
-    },
-    extraerARS: function extraerARS(sueldo) {
-      return 3.04 / 100 * sueldo;
-    },
-    extraerISR: function extraerISR(sueldo) {
-      return 15 / 100 * sueldo;
-    },
-    extraerSueldoNeto: function extraerSueldoNeto(sueldo) {
-      sueldo - (2.87 + 3.04 + 15);
+    formatNumber: function formatNumber(n) {
+      return Intl.NumberFormat("en-US").format(Math.round(n));
     }
-  },
+  }, _defineProperty(_methods, "edit", function edit(e, id) {
+    console.log(e.target.className);
+
+    if (e.target.localName != "button" && e.target.localName != "i" && e.target.className != "delete-td") {
+      location.href = "/employees-vue/" + id;
+    }
+  }), _defineProperty(_methods, "buttom", function buttom() {
+    this.show = this.show == true ? false : true;
+  }), _methods),
   mounted: function mounted() {
-    this.getEmployeess();
+    this.getEmployees();
   }
 });
 })();
