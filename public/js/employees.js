@@ -2080,7 +2080,7 @@ new Vue({
       var _this = this;
 
       axios.get('/employees-vue/list').then(function (response) {
-        _this.employees = response.data.employees;
+        _this.employees = response.data.employees.data;
         _this.ready = true;
       });
     },

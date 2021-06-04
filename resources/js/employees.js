@@ -10,7 +10,7 @@ new Vue({
     methods : {
         getEmployees(){
             axios.get('/employees-vue/list').then(response => {
-                this.employees = response.data.employees;
+                this.employees = response.data.employees.data;
                 this.ready     = true;
             }) 
         },

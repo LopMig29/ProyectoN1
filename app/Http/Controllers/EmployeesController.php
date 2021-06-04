@@ -10,8 +10,7 @@ class EmployeesController extends Controller
 {
     public function index(Request $request){
         return view("employees-vue/index",[
-           "employees"     => $this->getEmployees(),
-            "searchBy"      => $request->searchBy
+            "searchBy"  => $request->searchBy
         ]);
     }
 
@@ -52,14 +51,9 @@ class EmployeesController extends Controller
         }
         
     public function list(){
-        $employees = Employee::select('id','name','lastName','salary', 'civilStatus')->get();
+        $employees = Employee::select('id','name','lastName','salary', 'civilStatus')->Paginate(10);
         return response()->json([
             'employees' => $employees
         ]);
-    }
-
-    private function getEmployees(){ 
-        $searchBy = request()->searchBy;
-        return Employee::where('name','LIKE', '%'.$searchBy.'%')->Paginate(5);
     }
 }

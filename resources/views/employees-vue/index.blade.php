@@ -60,7 +60,6 @@
     </table>
 </div>
 @endverbatim
-{{ $employees->links() }}
 <link rel="stylesheet" href="css/employee.css">
 <script src="js/employees.js" defer></script>
 @endsection
