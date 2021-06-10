@@ -2072,15 +2072,17 @@ new Vue({
   el: '#employees-container',
   data: {
     ready: false,
-    employees: [],
-    show: false
+    employees: {},
+    show: false,
+    searchBy: ''
   },
   methods: (_methods = {
     getEmployees: function getEmployees() {
       var _this = this;
 
-      axios.get('/employees-vue/list').then(function (response) {
-        _this.employees = response.data.employees.data;
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/employees-vue/list?page=' + page + '&' + 'searchBy' + '=' + this.searchBy).then(function (response) {
+        _this.employees = response.data.employees;
         _this.ready = true;
       });
     },
@@ -2126,8 +2128,6 @@ new Vue({
       return Intl.NumberFormat("en-US").format(Math.round(n));
     }
   }, _defineProperty(_methods, "edit", function edit(e, id) {
-    console.log(e.target.className);
-
     if (e.target.localName != "button" && e.target.localName != "i" && e.target.className != "delete-td") {
       location.href = "/employees-vue/" + id;
     }
@@ -2136,7 +2136,8 @@ new Vue({
   }), _methods),
   mounted: function mounted() {
     this.getEmployees();
-  }
+  },
+  computed: {}
 });
 })();
 

@@ -4,15 +4,17 @@ new Vue({
     el: '#employees-container',
     data: {
         ready:false,
-        employees: [],
+        employees: {},
         show: false,
+        searchBy: '',
     },
+
     methods : {
-        getEmployees(){
-            axios.get('/employees-vue/list').then(response => {
-                this.employees = response.data.employees.data;
-                this.ready     = true;
-            }) 
+        getEmployees(page = 1){
+            axios.get('/employees-vue/list?page=' + page + '&' + 'searchBy' + '=' + this.searchBy).then(response => {
+                this.employees = response.data.employees;
+                this.ready  = true;
+            });
         },
 
         edit(){
@@ -58,7 +60,6 @@ new Vue({
         },
 
         edit(e,id){
-            console.log(e.target.className);
             if(e.target.localName != "button" && e.target.localName != "i" && e.target.className != "delete-td")
             {
                 location.href="/employees-vue/" + id;
@@ -72,5 +73,9 @@ new Vue({
   
     mounted(){
         this.getEmployees();
-    }
+    },
+
+    computed: {
+
+    },
 })

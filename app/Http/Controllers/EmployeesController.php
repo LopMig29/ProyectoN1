@@ -8,10 +8,8 @@ use SebastianBergmann\Environment\Console;
 
 class EmployeesController extends Controller
 {
-    public function index(Request $request){
-        return view("employees-vue/index",[
-            "searchBy"  => $request->searchBy
-        ]);
+    public function index(){
+        return view("employees-vue/index");
     }
 
     public function create(){
@@ -50,8 +48,10 @@ class EmployeesController extends Controller
             ]);
         }
         
-    public function list(){
-        $employees = Employee::select('id','name','lastName','salary', 'civilStatus')->Paginate(10);
+    public function list(Request $request){
+        $employees = Employee::select('id','name','lastName','salary', 'civilStatus')
+                             ->where('name','LIKE', '%'.$request->searchBy.'%')
+                             ->Paginate(5);
         return response()->json([
             'employees' => $employees
         ]);
