@@ -17,7 +17,7 @@
         </div>
     </div>
         <div class = "w-100 text-center">
-            <img src="https://i.pinimg.com/originals/3b/4e/10/3b4e109d6b621ed5a9249769afbd4dfa.gif" v-show="!ready">
+            <img src="https://media1.tenor.com/images/556e9ff845b7dd0c62dcdbbb00babb4b/tenor.gif?itemid=5345658" v-show="!ready">
         </div>
         <br>
         <table class="table table-hover table-bordered" v-show="ready" style="display:none">
@@ -46,7 +46,7 @@
                     <td>${{formatNumber(employee.ARS)}}</td>
                     <td>${{formatNumber(employee.ISR)}}</td>
                     <td>${{formatNumber(employee.net_salary)}}</td>
-                    <td class ="delete-td" v-show="show"> 
+                    <td class ="delete-td" v-show="show">
                         <button class="btn btn-danger" v-on:click="confirmDestroy(employee.id)">
                             <i class="fas fa-user-minus"></i>
                         </button>

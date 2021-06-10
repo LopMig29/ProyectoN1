@@ -25,7 +25,7 @@ class EmployeesController extends Controller
         $employee->save();
         return redirect('employees-vue');
     }
-    
+
     public function update(Request $request, $id) {
         $employee                = Employee::findOrFail($id);
         $employee->name          = $request->name;
@@ -45,9 +45,9 @@ class EmployeesController extends Controller
     public function destroy($id){
         return response()->json([
             'success' =>Employee::destroy($id)
-            ]);
-        }
-        
+        ]);
+    }
+
     public function list(Request $request){
         $employees = Employee::select('id','name','lastName','salary', 'civilStatus')
                              ->where('name','LIKE', '%'.$request->searchBy.'%')

@@ -2094,7 +2094,7 @@ new Vue({
     //         params :{
     //             'employee': employee.id,
     //         }
-    //     })    
+    //     })
     // },
     confirmDestroy: function confirmDestroy(id) {
       var _this2 = this;
