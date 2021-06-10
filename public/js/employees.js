@@ -2089,13 +2089,13 @@ new Vue({
     edit: function edit() {
       axios.get(employee.id).then(function (response) {});
     },
-    update: function update(employee) {
-      axios.put("employees-vue/", {
-        params: {
-          'employee': employee.id
-        }
-      });
-    },
+    // update(employee){
+    //     axios.put("employees-vue/", {
+    //         params :{
+    //             'employee': employee.id,
+    //         }
+    //     })    
+    // },
     confirmDestroy: function confirmDestroy(id) {
       var _this2 = this;
 

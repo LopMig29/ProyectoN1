@@ -22,13 +22,13 @@ new Vue({
             })
         },
         
-        update(employee){
-            axios.put("employees-vue/", {
-                params :{
-                    'employee': employee.id,
-                }
-            })    
-        },
+        // update(employee){
+        //     axios.put("employees-vue/", {
+        //         params :{
+        //             'employee': employee.id,
+        //         }
+        //     })    
+        // },
 
         confirmDestroy(id){
             swal({

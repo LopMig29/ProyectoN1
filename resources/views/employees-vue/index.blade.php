@@ -3,22 +3,23 @@
 @verbatim
 <div id="employees-container">
     <div class="btnCrear">
+        <a href="employees-vue" class="btn btn-secondary">
+            <i class="fas fa-redo"></i>
+        </a>
         <a href='employees-vue/create' class="btn btn-success" style="float: left">
             <i class="fa fa-user-plus"></i>
         </a>
-    </div>
-    <div class="btnOcultar">
-        <button @click='buttom' class="btn" style="float: right" v-bind:class="{'btn-danger': show, 'btn btn-dark': !show}">
+        <button @click='buttom' class="btn" v-bind:class="{'btn-danger': show, 'btn btn-dark': !show}">
             <i class="fas fa-eye"></i>
         </button>
-    </div>
-    <div class="form-inline my-2 my-lg-0 float-right">
-        <input class="form-control mr-sm-2" type="search" placeholder="Filtrar busqueda" v-model="searchBy" v-on:keyup.13="getEmployees(1)">
-    </div>
-    <br><br>
-        <div class = "w-100 text-center">
-            <img src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif" v-show="!ready">
+        <div class="form-inline my-2 my-lg-0 float-right">
+            <input class="form-control mr-sm-2" type="search" placeholder="Filtrar busqueda" v-model="searchBy" v-on:keyup.13="getEmployees(1)">
         </div>
+    </div>
+        <div class = "w-100 text-center">
+            <img src="https://i.pinimg.com/originals/3b/4e/10/3b4e109d6b621ed5a9249769afbd4dfa.gif" v-show="!ready">
+        </div>
+        <br>
         <table class="table table-hover table-bordered" v-show="ready" style="display:none">
             <thead class="thead-light">
                 <tr class="text-center">
