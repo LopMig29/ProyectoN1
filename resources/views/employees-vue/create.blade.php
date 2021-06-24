@@ -2,7 +2,7 @@
 @section('content')
 <a href="/employees-vue">
     <button class="btn btn-danger">
-        <i class="fas fa-arrow-circle-left" ></i>
+        <i class="fas fa-arrow-circle-left"></i>
     </button>
 </a>
 <form action="{{url ('employees-vue') }}" method="post">
@@ -29,16 +29,17 @@
                 <div class="col">
                     <label for="civilStatus"><h5>Estado Civil</h5></label>
                     <select name="civilStatus" id="civilStatus" class="form-control form-control-lg">
-                            <option value="Casado">Casado</option>
-                            <option value="Soltero">Soltero</option>
-                            <option value="Union libre">Union libre</option>
-                        </select>
-                        {{-- <input type="text" name="civilStatus"  placeholder="Estado civil" class="form-control form-control-lg" id="civilStatus" required> --}}
-                    </div>
+                        <option value="Casado">Casado</option>
+                        <option value="Soltero">Soltero</option>
+                        <option value="Union libre">Union libre</option>
+                    </select>
+                </div>
                 <br>
             </div>
             <div class="mx-auto" style="width: 400px;">
-                <button class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus"></i> Agregar</button>
+                <button class="btn btn-primary btn-lg btn-block"><i class="fas fa-plus"></i> 
+                    Agregar
+                </button>
             </div>
         </div>
     </form>

@@ -2061,10 +2061,6 @@ var __webpack_exports__ = {};
 /*!***********************************!*\
   !*** ./resources/js/employees.js ***!
   \***********************************/
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
     axios = _require["default"];
 
@@ -2076,26 +2072,18 @@ new Vue({
     show: false,
     searchBy: ''
   },
-  methods: (_methods = {
+  methods: {
+    //Funciones estaticas
     getEmployees: function getEmployees() {
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      //Respuesta del servidor
       axios.get('/employees-vue/list?page=' + page + '&' + 'searchBy' + '=' + this.searchBy).then(function (response) {
         _this.employees = response.data.employees;
         _this.ready = true;
       });
     },
-    edit: function edit() {
-      axios.get(employee.id).then(function (response) {});
-    },
-    // update(employee){
-    //     axios.put("employees-vue/", {
-    //         params :{
-    //             'employee': employee.id,
-    //         }
-    //     })
-    // },
     confirmDestroy: function confirmDestroy(id) {
       var _this2 = this;
 
@@ -2126,18 +2114,23 @@ new Vue({
     },
     formatNumber: function formatNumber(n) {
       return Intl.NumberFormat("en-US").format(Math.round(n));
+    },
+    edit: function edit(e, id) {
+      if (e.target.localName != "a" && e.target.localName != "i" && e.target.className != "delete-td") //target.localName = Encontrar objeto especifico
+        {
+          location.href = "/employees-vue/" + id;
+        }
+    },
+    buttom: function buttom() {
+      this.show = this.show == true ? false : true; // this.show = !this.show;
     }
-  }, _defineProperty(_methods, "edit", function edit(e, id) {
-    if (e.target.localName != "button" && e.target.localName != "i" && e.target.className != "delete-td") {
-      location.href = "/employees-vue/" + id;
-    }
-  }), _defineProperty(_methods, "buttom", function buttom() {
-    this.show = this.show == true ? false : true;
-  }), _methods),
+  },
   mounted: function mounted() {
+    //Ejecuta luego de cargar la vista
     this.getEmployees();
   },
-  computed: {}
+  computed: {//Funciones dinamicas
+  }
 });
 })();
 

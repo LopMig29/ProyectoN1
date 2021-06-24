@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <form action="{{url('employees-vue/'.$employee->id)}}" method="post">
-            @csrf
+        @csrf
         <div>
-            {{ method_field('PATCH') }}
+            @method('PATCH')
             <h3 class="text-center">
                 <b>Editar Empleado</b>
             </h3>
@@ -53,7 +53,6 @@
                 <a href="/employees-vue" class="btn btn-danger btn-lg w-50 mr-2" style="text-decoration: none;">
                     Cancelar
                 </a>
-
                 <button class="btn btn-primary btn-lg w-50 ml-2">
                     Actualizar <i class="fas fa-upload"></i>
                 </button>

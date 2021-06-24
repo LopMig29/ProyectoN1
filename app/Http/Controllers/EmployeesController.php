@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
-use SebastianBergmann\Environment\Console;
 
 class EmployeesController extends Controller
 {
@@ -35,7 +34,7 @@ class EmployeesController extends Controller
         $employee->update();
         return redirect('employees-vue');
     }
-    
+
     public function edit($id){
         return view('employees-vue/edit',[
             "employee" =>  Employee::findOrFail($id)
@@ -49,11 +48,11 @@ class EmployeesController extends Controller
     }
 
     public function list(Request $request){
-        $employees = Employee::select('id','name','lastName','salary', 'civilStatus')
+        $employees = Employee::select('id','name','lastName','salary', 'civilStatus')   //name of colum
                              ->where('name','LIKE', '%'.$request->searchBy.'%')
                              ->Paginate(5);
         return response()->json([
-            'employees' => $employees
+            'employees' => $employees   //var => valor
         ]);
     }
 }

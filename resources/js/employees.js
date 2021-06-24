@@ -3,32 +3,19 @@ const { default: axios } = require("axios");
 new Vue({
     el: '#employees-container',
     data: {
-        ready:false,
+        ready: false,
         employees: {},
         show: false,
         searchBy: '',
     },
 
-    methods : {
-        getEmployees(page = 1){
+    methods : {  //Funciones estaticas
+        getEmployees(page = 1){ //Respuesta del servidor
             axios.get('/employees-vue/list?page=' + page + '&' + 'searchBy' + '=' + this.searchBy).then(response => {
                 this.employees = response.data.employees;
-                this.ready  = true;
+                this.ready = true;
             });
         },
-
-        edit(){
-            axios.get(employee.id).then(response => {  
-            })
-        },
-        
-        // update(employee){
-        //     axios.put("employees-vue/", {
-        //         params :{
-        //             'employee': employee.id,
-        //         }
-        //     })
-        // },
 
         confirmDestroy(id){
             swal({
@@ -45,7 +32,7 @@ new Vue({
         },
 
         destroy(id){
-            axios.delete('/employees-vue/'+id).then(response => {    
+            axios.delete('/employees-vue/'+id).then(response => {
                 if(response.data.success){
                     swal("Empleado Eliminado",{
                         icon : 'success'
@@ -54,28 +41,29 @@ new Vue({
                 }
             });
         },
-        
+
         formatNumber(n){
             return Intl.NumberFormat("en-US").format(Math.round(n))
         },
 
         edit(e,id){
-            if(e.target.localName != "button" && e.target.localName != "i" && e.target.className != "delete-td")
+            if(e.target.localName != "a" && e.target.localName != "i" && e.target.className != "delete-td") //target.localName = Encontrar objeto especifico
             {
                 location.href="/employees-vue/" + id;
             }
         },
 
-        buttom(){ 
+        buttom(){
             this.show = this.show == true ? false : true;
+            // this.show = !this.show;
         },
     },
-  
-    mounted(){
+
+    mounted(){ //Ejecuta luego de cargar la vista
         this.getEmployees();
     },
 
-    computed: {
+    computed: {  //Funciones dinamicas
 
     },
 })
